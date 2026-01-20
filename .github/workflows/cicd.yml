@@ -25,7 +25,7 @@ jobs:
 
   docker:
     needs: build
-      if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
 
     steps:
@@ -47,5 +47,5 @@ jobs:
           context: .
           push: true
           tags: |
-            ${{ secrets.DOCKER_USERNAME }}/gallery-back:latest
-            ${{ secrets.DOCKER_USERNAME }}/gallery-back:${{ github.sha }}
+            ${{ secrets.DOCKER_USERNAME }}/gallery-front:latest
+            ${{ secrets.DOCKER_USERNAME }}/gallery-front:${{ github.sha }}
